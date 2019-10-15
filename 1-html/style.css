@@ -1,0 +1,31 @@
+body{
+		background-color:rgb(21, 157, 26);
+		margin:0px;
+	}
+	#container1{
+		width:800px;
+		background-color:white;
+		margin:5em auto;
+		border-radius:1em;
+		//height:800px;
+		padding:50px;
+		
+		
+	}
+	#shape{
+		width:200px;
+		height:200px;
+		background-color:blue;
+		position:relative;
+		border-radius: 50%;
+		
+	}
+	a{
+		text-decoration:none;
+		
+	
+	
+	}
+	a:hover{
+		color:red;
+	}

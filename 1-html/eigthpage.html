@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+<head>
+<title>Regular Expression</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="jquery-ui/jquery-ui.js"></script>
+
+<style type="text/css">
+	label{
+		position:relative;
+		top:6px;
+		width:150px;
+		float:left;
+	}
+	input{
+		padding:5px;
+		border-radius:10px;
+	}
+	.formElement{
+		margin: 10px;
+		
+	}
+	#submit{
+		margin-left:200px;
+		width:100px;
+	}
+	#errorMessage{
+		color:red;
+	}
+	#sussesMessage{
+		color:green;
+		margin-bottom:20px;
+	}
+	
+	#draggable{
+		border:1px solid;
+		width:100px;
+		height:100px;
+		border-radius:10px;
+		margin-top:10px;
+	}
+	#draggable1{
+		border:1px solid;
+		width:100px;
+		height:100px;
+		border-radius:10px;
+		margin:10px;
+	}
+	#draggable2{
+		border:1px solid;
+		width:400px;
+		height:400px;
+		border-radius:10px;
+		margin:10px;
+	}
+	#dragMe{
+		margin-left:15px;
+		
+	}
+	#dragMe1{
+		margin:15px;
+		
+		
+	}
+	#draggable3{
+		width:100px;
+		height:100px;
+		background-color:blue;
+		margin:10px;
+	}
+	#droppable{
+		background-color:red;
+		width:300px;
+		height:300px;
+		margin:10px;
+		
+		
+	}
+	
+	
+	
+	
+	
+</style>
+</head>
+<body>
+
+	
+	<div id="container1">
+		<a href="seventhpage.html">pre page</a> >>> | >>><a href="ninthpage.html">next page</a>
+		
+	
+		<h1>Regular Expression</h1>
+		<div id="errorMessage"> </div>
+		<div id="sussesMessage"> </div>
+		<div  class="formElement">
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email" placeholder="eg.abcd@gfg.com"><br>
+		
+		</div>
+		
+		<div class="formElement">
+			<label for="phoneNumber">Phone Number</label>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="eg.0123456789"><br>
+		
+		</div>
+		
+		<div class="formElement">
+			<label for="password">Password </label>
+			<input type="password" name="password" id="password"><br>
+		
+		</div>
+		<div class="formElement">
+			<label for="comfirmPassword">Confirm Password </label>
+			<input type="password" name="confirmPassword" id="confirmPassword"><br>
+		
+		</div>
+		
+		<div class="formElement">
+			
+			<input type="submit" value="Sign up" id="btnsubmit"><br>
+		
+		</div>
+		<h3>N.B '!imporant' syntax helps to override previouslly setup  css styling . </h3>
+		
+		<h1>JQuery UI</h1>
+		<p>There are a number of jquery UIs : draggable, droppable, accordion </p>
+		<a href="http://jqueryui.com/" target="_blank">JQuery UI Link</a>
+		
+		<div id="draggable"><p id="dragMe">Drag me :)</p></div>
+		<br>
+		<div id="draggable1"><p id="dragMe1">Drag me horizontally only:)</p></div>
+		
+		<div id="draggable2"><span id="dragMe2">Drag me inside this div only:)</span></div>
+		
+		<div id="resizable" style="width:100px; height:100px ;background-color:green"><p>Resizable shape. You can resize this shape by dragging the arrow sign.</p></div>
+		
+		
+		<div id="draggable3"><p>Drag me to my target</p></div>
+		<div id="droppable"><p>Drop here</p></div>
+		
+		<h2>Accordion</h2>
+		
+		<div id="accordion">
+		
+			<h3>First news</h3>
+			<div>
+				<p>There are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pages</p>
+			</div>
+			
+			<h3>Second News</h3>
+			<div>
+				<p>Number two There are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pages</p>
+			</div>
+			
+			
+			<h3>Third  News</h3>
+			<div>
+				<p>Number Three There are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pageshere are a couple of news in our web pages</p>
+			</div>		
+		
+			
+		</div>
+		
+		<h2>Sortable item list</h2>
+		<div>
+			<ul id="sortable">
+				<li>1 Hussen</li>
+				<li>2 Abdo</li>
+				<li>3 Hamza</li>
+				<li>4 Almaz</li>
+			</ul>
+		</div>
+		
+		
+
+		</div>
+		
+
+	<script type="text/javascript" >
+		function isEmail(email) {
+			var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			return regex.test(email);
+		}
+		
+		var errorMessage = "";
+		var fieldMissing = "";
+		
+		
+		
+		$("#btnsubmit").click(function(){
+		
+			if($("#email").val() ==""){
+				fieldMissing += "<br>Email";
+			
+			}
+			if($("#phoneNumber").val() == ""){
+				fieldMissing += "<br>PhoneNumber";
+			
+			}
+			if($("#password").val() == ""){
+				fieldMissing += "<br>password";
+			
+			}
+			if($("#confirmPassword").val() == ""){
+				fieldMissing += "<br>confirmPassword<br>";
+			
+			}
+			if(fieldMissing != ""){
+				errorMessage += "<p>The following fields are missing. </p>" + fieldMissing; 
+			}
+			if(isEmail($("#email").val()) == false){
+				  errorMessage += "your email is not valid.";
+				 }
+				 
+			if($.isNumeric($("#phoneNumber").val())== false){
+				errorMessage += "<p>Your phone nuber is not valid.</p>"
+			}
+			if($("#password").val() != $("#confirmPassword").val()){
+			
+				errorMessage += "<p>Your password doesnt match.</p>"
+			}
+			
+			if(errorMessage != ""){
+			  $("#errorMessage").html(errorMessage);
+			}
+			else{
+				$("#sussesMessage").html("Wonder full! you have successfully signed up.")
+			}
+			
+				
+			
+		});
+		// JQuery UI 
+		$("#draggable").draggable();
+		$("#draggable1").draggable({axis:"x"});
+		$( "#dragMe2" ).draggable({ containment: "parent" });	
+		$( function() {
+			$( "#resizable" ).resizable();
+		} );
+		
+		$("#draggable3").draggable();
+		$("#droppable").droppable({
+			drop: function(){
+			
+				$(this)
+					.find("p").html("dropped!");
+			}
+		
+		
+		
+		});
+		
+		$("#accordion").accordion();
+		
+		$("#sortable").sortable();
+		
+		
+	</script>
+	
+	
+</body>
+</html>

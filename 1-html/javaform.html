@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<title>Java Form</title>
+
+				<meta charset="utf-8" />
+				<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+<body>
+<h1>
+Java Form
+</h1>
+
+
+What is 5 + 6 ? <input id="name" type="text" placeholder="Enter sum">
+
+
+<p> Hussen <input type="checkbox" checked value="hussen"> </p>
+<p>Teyeb <input type="checkbox" value="teyeb"> </p>
+<p> Abdurahman <input type="checkbox" value="abdurahman"> </p>
+
+<input id="btn" type="submit" value="Submit">
+
+<label id="textName">your answer </label>
+<script type="text/javascript">
+
+  
+  document.getElementById("btn").onclick = function(){
+		var name = document.getElementById("name").value;
+		if(name == "yes"){
+		
+		document.getElementById("textName").innerHTML = "You got the anwer";
+		}else{
+	
+		document.getElementById("textName").innerHTML = "Try another number";
+		}
+  }
+  
+</script>
+</body>
+</html>

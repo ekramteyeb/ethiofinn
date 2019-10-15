@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<title>JavaScript</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style type="text/css">
+	body{
+		background-color:grey;
+		margin:0px;
+	}
+	#container1{
+		width:800px;
+		background-color:white;
+		margin:5em auto;
+		border-radius:1em;
+		height:800px;
+		padding:50px;
+		
+		
+	}
+	.circle{
+		width:100px;
+		height:100px;
+		border-radius:100%;
+		float:left;
+		margin:5px;
+	}
+	#redcircle{
+		background-color:red;
+	}
+	#bluecircle{
+		background-color:blue;
+	}
+	#purplecircle{
+		background-color:purple;
+	}
+</style>
+</head>
+<body>
+
+	<div id="container1">
+		<a href="page-3.html">pre page</a>>> | << <a href="fifthpage.html">next page</a>
+	
+		<h1>Java Script Lesson ...........</h1>
+		<p id="header1">Java Script </p>
+		<button id="buttonclickme">Click me</button><br>
+		<button id="changeheader">Change header</button>
+		
+		<h2>Circle Hide</h2>
+		
+			<div class="circle" id="redcircle"></div>
+			<div class="circle" id="bluecircle"></div>
+			<div class="circle" id="purplecircle"></div>
+			<br/><br/><br/><br/><br/><br/><br/>
+	
+		<br/><a href="http://www.cheat-sheets.org/sites/javascript.su/" target="_blank">JavaScript in One page</a>
+	</div>
+	<script type="text/javascript">
+		document.getElementById("header1").style.fontSize = "20px";
+		
+		document.getElementById("buttonclickme").onclick = function(){
+				alert("Button Clicked");
+		}
+		document.getElementById("changeheader").onclick = function(){
+				document.getElementById("header1").innerHTML = "You will learn java script very soon ";
+		}
+		document.getElementById("redcircle").onclick = function(){
+				document.getElementById("redcircle").style.display = "none";
+		}
+		document.getElementById("bluecircle").onclick = function(){
+				document.getElementById("bluecircle").style.display = "none";
+		}
+		document.getElementById("purplecircle").onclick = function(){
+				document.getElementById("purplecircle").style.display = "none";
+		}
+	</script>
+	
+	
+</body>
+</html>

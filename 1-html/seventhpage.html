@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<title>JQueray</title>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+			
+	<style type="text/css">
+	
+		.circle{
+			width:100px;
+			height:100px;
+			background-color:green;
+			border-radius:50%;
+			
+		}
+		
+		.square{
+			width:100px;
+			height:100px;
+			background-color:red;
+		
+		}
+		#{
+			display:none;
+		}
+	
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	
+
+</head>
+<body>
+	<a href="sixpage.html">pre page</a>>> | << <a href="eigthpage.html">next page</a>
+<h1>
+JQuery 
+</h1>
+
+
+What is 5 + 6 ? <input id="name" type="text" placeholder="Enter sum">
+
+
+	<p> Hussen <input type="checkbox" checked value="hussen"> </p>
+	<p>Teyeb <input type="checkbox" value="teyeb"> </p>
+	<p> Abdurahman <input type="checkbox" value="abdurahman"> </p>
+
+	<input id="btn" type="submit" value="Submit">
+
+	<label id="textName">your answer </label>
+	<p id="textFO">Click the button bellow to fadeOut this paragraph</p>
+
+	<p><button id="btnFO">FadeOut</button></p>
+	
+	
+	<p id="toggletext">This is a toggled paragraph</p>
+	
+	<p><button id="btntoggle">Toggle Text</button></p>
+	
+	<p> In another situation where you are not able to know the property and behaviour of the html element , it is possible to use some variable that keeps track of the behaviour of that element. Therefore the ff method can be applied to perfom the same task above.</p>
+	
+	
+	
+	<p id="toggletext1">This is a toggled paragraph as well </p>
+	
+	<p><button id="btntoggle1">Toggle Text 1</button></p>
+	<h2>Animation </h2>
+	<div id= "circle1" class="circle"></div>
+	<p></p>
+	<div class="circle"></div>
+	<div class="square"></div>
+	<p></p>
+	<div class="square"></div>
+	<p></p>
+	
+	<h2>Ajax </h2>
+  	<p>Asynchronous Java and XML helps to perform I/O from server with out refreshing/reloading the whole page.</p>
+  <p>Let'us see this in action. Click the button bellow to feth a paragraph from Simple.txt file in the server. </p>
+  <p id="simpleText"></p>
+	
+  <button id="btnSimpleText">Click here</button>
+
+	<script type="text/javascript">
+
+	  
+	  document.getElementById("btn").onclick = function(){
+			var name = document.getElementById("name").value;
+			if(name == "yes"){
+			
+			document.getElementById("textName").innerHTML = "You got the anwer";
+			}else{
+		
+			document.getElementById("textName").innerHTML = "Try another number";
+			}
+	  }
+	  //Remove number 1 from div1 id to see the effect of the script on other 
+	  
+	  $("circle1").click(function(){
+		
+		$(this).fadeOut(1000, function(){
+		
+			$(this).fadeIn(1000);
+		});
+	  
+	  });
+	  
+		$("#btnFO").click(function(){
+		
+			$("#textFO").fadeOut("slow");
+		});
+		
+		$("#btntoggle").click(function(){
+			
+			if($("#toggletext").css("display") == "none") {
+				$("#toggletext").fadeIn();
+			
+			}else{
+				$("#toggletext").fadeOut();
+			
+			}
+			
+		});
+		
+		var textShowing = true;
+		
+		$("#btntoggle1").click(function(){
+			
+			if(textShowing) {
+				$("#toggletext1").fadeOut(function(){
+				
+					textShowing = false;
+				});
+			
+			}else{
+				$("#toggletext1").fadeIn(function(){
+				
+					textShowing = true;
+				});
+			
+			}
+			
+		});
+		
+		$("div").click(function(){
+			$(this).animate({width:"400px",			
+							height:"400px",
+							marginLeft:"1000px",
+							marginTop:"00px"				
+							}, 6000 , function(){
+								$(this).css("background-color","red");
+								$(this).animate({marginLeft:"0px"});
+								$(this).animate({marginTop:"500px"});
+								$(this).animate({marginTop:"0px"});
+							});
+		});
+		//Ajax 
+       
+       $("#btnSimpleText").click(function(){
+      			$.ajax("simple.txt").done(function(data){
+        					
+          					alert(data);
+        					})
+        					.fail(function(){
+        					alert("data cannt be retrieved. This is only possible from server side. not from local machine.");
+        					})
+                
+                
+         });
+        
+        
+      	
+  
+</script>
+</body>
+</html>
