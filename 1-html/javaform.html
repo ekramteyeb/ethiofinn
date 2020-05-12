@@ -17,21 +17,36 @@ Java Form
 What is 5 + 6 ? <input id="name" type="text" placeholder="Enter sum">
 
 
-<p> Hussen <input type="checkbox" checked value="hussen"> </p>
-<p>Teyeb <input type="checkbox" value="teyeb"> </p>
-<p> Abdurahman <input type="checkbox" value="abdurahman"> </p>
+<p> Hussen <input id="checkboxid1" name="checkbox" type="checkbox" checked value="hussen"> </p>
+<p>Teyeb <input id="checkboxid2" type="checkbox" name="checkbox" value="teyeb"> </p>
+<p> Abdurahman <input id="checkboxid3" type="checkbox" name="checkbox" value="abdurahman"> </p>
 
 <input id="btn" type="submit" value="Submit">
-
+<br>
 <label id="textName">your answer </label>
 <script type="text/javascript">
 
   
   document.getElementById("btn").onclick = function(){
 		var name = document.getElementById("name").value;
-		if(name == "yes"){
-		
-		document.getElementById("textName").innerHTML = "You got the anwer";
+		var text = '';
+		// this code will check if the checkboxes are checked and print them to display
+		if(Number(name) === 5 + 6){
+		  text += "You got the answer" + '</br>';
+
+		  document.getElementsByName('checkbox').forEach( function(n){
+			  if(n.checked){
+			  text += n.value + '</br>';
+		  }
+		  })
+			  
+		// this will print every check box regardless of they are checked 
+		  text += document.getElementById('checkboxid1').value + '</br>'; 
+		  text += document.getElementById('checkboxid2').value + '</br>' ;
+		  text += document.getElementById('checkboxid3').value;
+
+		  document.getElementById("textName").innerHTML = text;
+
 		}else{
 	
 		document.getElementById("textName").innerHTML = "Try another number";
